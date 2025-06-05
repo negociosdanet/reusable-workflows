@@ -20,7 +20,7 @@ permissions:
 jobs:
   build:
     name: Build & Test
-    if: startsWith(github.ref, 'refs/heads/develop/')
+    # if: startsWith(github.ref, 'refs/heads/develop/')
     uses: ./.github/workflows/build-java-maven.yaml
     with:
       java-version: ${{ inputs.java-version }}
