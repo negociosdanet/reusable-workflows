@@ -28,7 +28,7 @@ jobs:
   deploy-snapshot:
     name: Deploy -SNAPSHOT to Nexus
     needs: build
-    uses: ./.github/workflows/deploy-java-maven-snapshot.yml
+    uses: ./.github/workflows/deploy-java-maven-snapshot.yaml
     secrets: inherit
     with:
       java-version: ${{ inputs.java-version }}
