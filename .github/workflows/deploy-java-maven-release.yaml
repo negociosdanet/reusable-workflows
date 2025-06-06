@@ -79,7 +79,7 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git commit -am "chore(release): finalize version ${{ steps.cleanup-version.outputs.final_version }}"
-          git push
+          # git push
 
   create-tag:
     name: Tag, GitHub Release & Bump Develop
@@ -117,10 +117,10 @@ jobs:
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: v$FINAL_VERSION
-          name: Release v$FINAL_VERSION
+          tag_name: v"$FINAL_VERSION"
+          name: Release v"$FINAL_VERSION"
           body: |
-            "📦 Final version released: v$FINAL_VERSION"
+            📦 Final version released: v"$FINAL_VERSION"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
