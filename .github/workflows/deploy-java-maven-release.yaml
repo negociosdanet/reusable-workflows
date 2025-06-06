@@ -63,7 +63,6 @@ jobs:
           echo "version=$VERSION" >> $GITHUB_OUTPUT
 
       - name: Finalize Version (remove RC)
-        if: contains(steps.current-version.outputs.version, '-RC')
         id: cleanup-version
         run: |
           FINAL_VERSION=$(echo "${{ steps.current-version.outputs.version }}" | sed 's/-RC[0-9]*//')
