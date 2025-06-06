@@ -102,7 +102,7 @@ jobs:
 
   create-git-release:
     name: Create GitHub Release
-    needs: [prepare-release]
+    needs: [prepare-release, create-tag]
     runs-on: ubuntu-latest
     env:
       FINAL_VERSION: ${{ needs.prepare-release.outputs.final_version }}
@@ -127,7 +127,7 @@ jobs:
   bump-develop:
     name: Bump Develop Branch to Next Snapshot
     runs-on: ubuntu-latest
-    needs: [prepare-release]
+    needs: [prepare-release, create-git-release]
     env:
       FINAL_VERSION: ${{ needs.prepare-release.outputs.final_version }}
 
