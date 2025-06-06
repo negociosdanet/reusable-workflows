@@ -9,7 +9,7 @@ on:
         default: '21'
 
 permissions:
-  contents: read
+  contents: write
   packages: write
 
 jobs:
