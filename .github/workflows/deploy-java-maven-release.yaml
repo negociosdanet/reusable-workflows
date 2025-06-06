@@ -128,6 +128,8 @@ jobs:
     name: Bump Develop Branch to Next Snapshot
     runs-on: ubuntu-latest
     needs: create-git-release
+    env:
+      FINAL_VERSION: ${{ needs.prepare-release.outputs.final_version }}
 
     steps:
       - name: Checkout Develop Branch
