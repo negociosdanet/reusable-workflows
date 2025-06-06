@@ -9,13 +9,12 @@ on:
         default: '21'
 
 permissions:
-  contents: write
+  contents: read
   packages: write
 
 jobs:
   prepare-rc:
     name: Prepare RC Version & Deploy
-    needs: build
     runs-on: ubuntu-latest
     outputs:
       next_rc_version: ${{ steps.rc.outputs.next_rc_version }}
